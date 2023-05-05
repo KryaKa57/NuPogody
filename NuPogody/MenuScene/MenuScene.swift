@@ -22,6 +22,7 @@ class MenuScene: SKScene {
     
     override func sceneDidLoad() {
         
+        
         bgImage = (self.childNode(withName: "backGround") as! SKSpriteNode)
         bgImage.zPosition = -99
         

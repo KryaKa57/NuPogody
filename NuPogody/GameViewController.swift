@@ -11,6 +11,13 @@ import GameplayKit
 
 class GameViewController: UIViewController {
 
+    override func viewDidAppear(_ animated: Bool) {
+        if let delegate = UIApplication.shared.delegate as? AppDelegate {
+            let orientation: UIInterfaceOrientationMask = .all
+            delegate.supportedOrientation = orientation
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         

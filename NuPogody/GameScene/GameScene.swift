@@ -87,12 +87,15 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         if UserDefaults.standard.integer(forKey: "difficulty") == 1 {
             timeInterval = 3
             chanceBomb = 5
+            chanceGoldenEgg = 5
         } else if UserDefaults.standard.integer(forKey: "difficulty") == 2 {
             timeInterval = 2
             chanceBomb = 10
+            chanceGoldenEgg = 3
         } else {
             timeInterval = 1
             chanceBomb = 15
+            chanceGoldenEgg = 1
         }
         
         gameTimer = Timer.scheduledTimer(timeInterval: TimeInterval(timeInterval), target: self, selector: #selector(randomItem), userInfo: nil, repeats: true)

@@ -34,6 +34,10 @@ class TrophyScene: SKScene {
         
         self.addChild(trophyNode)
         self.addChild(recordLabel)
+        
+        if (UserDefaults.standard.integer(forKey: "highScore")) == 0 {
+            zeroPoint()
+        }
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -45,12 +49,16 @@ class TrophyScene: SKScene {
             if nodesArray.first?.name == "escapeButton" || nodesArray.first?.name == "escapeLabel" {
                 back()
             } else if nodesArray.first?.name == "zeroButton" || nodesArray.first?.name == "zeroLabel" {
-                recordLabel.text = "Текущий рекорд: 0"
-                UserDefaults.standard.set(0, forKey: "highScore")
-                trophyNode.removeFromParent()
-                self.addChild(tearNode)
+                zeroPoint()
             }
         }
+    }
+    
+    func zeroPoint(){
+        recordLabel.text = "Текущий рекорд: 0"
+        UserDefaults.standard.set(0, forKey: "highScore")
+        trophyNode.removeFromParent()
+        self.addChild(tearNode)
     }
     
     func back(){
