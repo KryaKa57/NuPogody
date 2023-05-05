@@ -13,8 +13,9 @@ class MenuScene: SKScene {
     var newGameButtonNode: SKSpriteNode!
     var difficultyButtonNode: SKSpriteNode!
     var soundChangeNode: SKSpriteNode!
-    
     var player: AVAudioPlayer!
+    
+    var transition = SKTransition.fade(withDuration: 0.5)
     
     let textureSoundOn = SKTexture(imageNamed: "sound-on")
     let textureSoundOff = SKTexture(imageNamed: "sound-off")
@@ -58,12 +59,10 @@ class MenuScene: SKScene {
             let nodesArray = self.nodes(at: location)
             
             if nodesArray.first?.name == "newGameButton" || nodesArray.first?.name == "newGameLabel" {
-                let transition = SKTransition.fade(withDuration: 0.5)
                 let gameScene = GameScene(fileNamed: "GameScene")!
                 gameScene.scaleMode = scaleMode
                 self.view?.presentScene(gameScene, transition: transition)
             } else if nodesArray.first?.name == "difficultyButton" || nodesArray.first?.name == "difficultyLabel" {
-                let transition = SKTransition.fade(withDuration: 0.5)
                 let ChangeDifficultyScene = ChangeDifficultyScene(fileNamed: "ChangeDifficultyScene")!
                 ChangeDifficultyScene.scaleMode = scaleMode
                 self.view?.presentScene(ChangeDifficultyScene, transition: transition)
@@ -76,7 +75,9 @@ class MenuScene: SKScene {
                     soundChangeNode.texture = textureSoundOn
                 }
             } else if nodesArray.first?.name == "trophyButton" {
-                //TODO: trophyScene
+                let trophyScene = TrophyScene(fileNamed: "TrophyScene")!
+                trophyScene.scaleMode = scaleMode
+                self.view?.presentScene(trophyScene, transition: transition)
             }
         }
     }

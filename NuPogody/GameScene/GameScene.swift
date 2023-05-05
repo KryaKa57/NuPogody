@@ -310,8 +310,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
         self.run(SKAction.playSoundFileNamed("egg-fail-2.mp3", waitForCompletion: false))
         
-        
-        //TODO: Конец игры + Автоматизировать это
         if(loss.texture == textureLoss3Egg) {
             score = 0
             loss.texture = textureLoss0Egg

@@ -8,19 +8,6 @@
 import SpriteKit
 
 class ChangeDifficultyScene: SKScene {
-    var bgImage: SKSpriteNode!
-    var easyButtonNode: SKSpriteNode!
-    var mediumButtonNode: SKSpriteNode!
-    var hardButtonNode: SKSpriteNode!
-    
-    override func sceneDidLoad() {
-        bgImage = (self.childNode(withName: "backGround") as! SKSpriteNode)
-        bgImage.zPosition = -99
-        
-        easyButtonNode = (self.childNode(withName: "easyButton") as! SKSpriteNode)
-        mediumButtonNode = (self.childNode(withName: "mediumButton") as! SKSpriteNode)
-        hardButtonNode = (self.childNode(withName: "hardButton") as! SKSpriteNode)
-    }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         let touch = touches.first
